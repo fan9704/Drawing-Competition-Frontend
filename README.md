@@ -10,6 +10,27 @@ Also, when the development server is executed, it is checked in real time by [vi
 
 First define `VITE_APP_TITLE` in your `.env` file.
 
+---
+
+## Getting Started
+
+### Create .env file
+
+```shell
+VITE_APP_TITLE = "Equipment-Frontend"
+VITE_APP_WEBSTORAGE_NAMESPACE=vuetify
+VUE_APP_API_URL="http://127.0.0.1:8000/api"
+VITE_SERVER_URL="http://127.0.0.1:8000/api"
+```
+
+### Run Runserver
+
+```shell
+pnpm dev
+```
+
+---
+
 ## Commands
 
 It is designed to be close to [create-vue](https://github.com/vuejs/create-vue-templates/tree/main/typescript-router-pinia-vitest) commands.

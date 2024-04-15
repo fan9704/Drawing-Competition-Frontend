@@ -44,6 +44,7 @@
     "aos": "^2.3.4",
     "axios": "^1.6.7",
     "core-js": "^3.36.0",
+    "firebase": "^10.10.0",
     "pinia": "^2.1.7",
     "pinia-plugin-persistedstate": "^3.2.1",
     "sweetalert2": "^11.10.7",
@@ -51,6 +52,7 @@
     "vue-axios": "^3.5.2",
     "vue-router": "^4.3.0",
     "vue-sweetalert2": "^5.0.5",
+    "vuefire": "^3.1.23",
     "vuestic-ui": "^1.9.6",
     "vuetify": "^3.5.8",
     "webfontloader": "^1.6.28"
