@@ -1,5 +1,5 @@
 interface Order {
-  id: string;
+  id: number;
   order_number: string;
   description: string;
   status: string;
@@ -21,7 +21,7 @@ interface OrderUpdateDTO {
   order_number: string;
   description: string;
   status: string;
-  username: string
+  user_id: number
   expected_date: timestamp;
 }
 
