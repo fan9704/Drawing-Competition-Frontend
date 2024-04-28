@@ -1,7 +1,10 @@
 <script setup lang="ts">
-import { getOrderById, updateOrder } from '@/api/order';
-import swal from 'sweetalert2';
+import { getPartById, updatePart } from '@/api/part';
+import type { PartUpdateRequestDTO } from '@/interfaces/part';
 import { onUpdated, ref } from 'vue';
+import swal from 'sweetalert2';
+import router from '@/router';
+import { onMounted } from 'vue';
 
 
 const props = defineProps({
@@ -11,45 +14,46 @@ const props = defineProps({
   },
 });
 const record = ref({
-  order_number: "",
-  description: "",
-  status: "",
-  expected_date: undefined,
-  username: ""
-} as any);
+  id: 0,
+  name: "",
+  number: 0,
+  min_number: 0,
+  warning: false,
+} as PartUpdateRequestDTO);
 
 const findPartById = async (id: number) => {
-  const res = await getOrderById(id);
+  const res = await getPartById(id);
   record.value = res.data;
 };
 const resetForm = () => {
   record.value = {
-    order_number: "",
-    description: "",
-    status: "",
-    expected_date: undefined,
-    username: ""
+    name: "",
+    number: 0,
+    min_number: 0,
+    warning: false,
   };
 };
 const submitForm = async () => {
+  const warning = record.value.number < record.value.min_number ? true : false;
+
   const formRecord = {
-    order_number: record.value.order_number,
-    description: record.value.description,
-    status: record.value.status,
-    expected_date: record.value.expected_date,
-    username: record.value.username
-  } as any;
-  const res = await updateOrder(props.id, formRecord)
+    name: record.value.name,
+    number: record.value.number,
+    min_number: record.value.min_number,
+    warning: warning,
+  } as PartUpdateRequestDTO;
+  const res = await updatePart(props.id, formRecord)
   if (res.status == 200) {
     record.value = res.data;
-    swal.fire("修改成功", "訂單資料已經同步更新", "success");
+    swal.fire("修改成功", "零件資料已經同步更新", "success")
+    router.push({ name: 'PartManagement' });
   }
   else {
-    swal.fire("修改失敗", "訂單資料異常或伺服器異常", "error");
+    swal.fire("修改失敗", "數量異常或伺服器異常", "error")
   }
 
 };
-onUpdated(() => {
+onMounted(() => {
   if (props.id != null) {
     findPartById(props.id);
   }
@@ -58,26 +62,19 @@ onUpdated(() => {
 
 <template>
   <span id="part-edit-form-shell">
-    <h2>123456</h2>
     <v-form id="part-edit-form">
       <v-row>
         <!-- <v-col cols=" 2">
         <v-text-field v-model="record.id" label="零件編號"></v-text-field>
       </v-col> -->
-        <v-col cols="2">
-          <v-text-field v-model="record.order_number" label="訂單編號"></v-text-field>
+        <v-col cols="4">
+          <v-text-field v-model="record.name" label="零件名稱"></v-text-field>
         </v-col>
         <v-col cols="4">
-          <v-text-field v-model="record.description" label="訂單描述"></v-text-field>
+          <v-text-field v-model="record.number" label="零件數量"></v-text-field>
         </v-col>
-        <v-col cols="2">
-          <v-text-field v-model="record.status" label="訂單狀態"></v-text-field>
-        </v-col>
-        <v-col cols="2">
-          <v-text-field v-model="record.username" label="操作人"></v-text-field>
-        </v-col>
-        <v-col cols="2">
-          <v-text-field v-model="record.expected_date" label="預計完工日期"></v-text-field>
+        <v-col cols="4">
+          <v-text-field v-model="record.min_number" label="最小安全庫存數"></v-text-field>
         </v-col>
       </v-row>
       <v-row>

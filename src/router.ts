@@ -29,6 +29,15 @@ const routes: RouteRecordRaw[] = [
     },
   },
   {
+    path: '/part/:id',
+    name: 'PartEditView',
+    component: async () => await import('@/views/PartEditView.vue'),
+    props: true,
+    meta: {
+      requiresAuth: true,
+    },
+  },
+  {
     path: '/part/management',
     name: 'PartManagement',
     component: async () => await import('@/views/PartManagementView.vue'),

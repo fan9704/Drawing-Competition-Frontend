@@ -7,6 +7,7 @@ import router from '@/router';
 import { onMounted } from 'vue';
 import { useDate } from 'vuetify'
 import { ref } from 'vue';
+import swal from 'sweetalert2';
 
 
 const props = defineProps({
@@ -71,11 +72,13 @@ const submitForm = async () => {
   console.log(formRecord)
   if (res.status == 200) {
     record.value = res.data;
-    alert('修改成功');
+    swal.fire("修改成功", "訂單資料已經同步更新", "success");
+    router.push({ name: 'Order' });
   }
   else {
-    alert('修改失敗');
+    swal.fire("修改失敗", "訂單資料異常或伺服器異常", "error");
   }
+
 
 };
 const getAllUsers = async () => {

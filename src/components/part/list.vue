@@ -5,6 +5,7 @@ import { listParts, deletePart, patchPart } from '@/api/part';
 import type { Part } from '@/interfaces/part';
 import { onMounted, ref } from 'vue';
 import swal from 'sweetalert2';
+import router from '@/router';
 
 const formShow = ref<boolean>(false);
 
@@ -13,8 +14,7 @@ const networkRecords = ref<Part[]>([]);
 const selectId = ref<number>(0);
 
 const setId = async (id: number) => {
-  selectId.value = id;
-  formShow.value = true;
+  router.push({ name: "PartEditView", params: { id } });
 }
 const closeForm = () => {
   formShow.value = false;
