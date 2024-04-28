@@ -1,10 +1,12 @@
+import type { OAuthRegisterDTO } from "../account";
+
 interface Order {
   id: number;
   order_number: string;
   description: string;
   status: string;
   expected_date: timestamp;
-  user_id: number
+  user_id: OAuthRegisterDTO
 }
 
 interface OrderCreateDTO {

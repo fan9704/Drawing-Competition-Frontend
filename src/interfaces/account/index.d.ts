@@ -14,6 +14,12 @@ interface User {
   user_permissions: number[];
 }
 
+interface UserResponseDTO {
+  username: string;
+  first_name: string;
+  last_name: string;
+}
+
 interface OAuthRegisterDTO {
   username: string;
   email: string;
@@ -25,4 +31,4 @@ interface OAuthLoginDTO {
   email: string
 }
 
-export { User, OAuthRegisterDTO, OAuthLoginDTO }
+export { User, OAuthRegisterDTO, OAuthLoginDTO, UserResponseDTO }

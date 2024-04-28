@@ -72,7 +72,8 @@ onMounted(() => {
   <v-row>
     <v-col cols="1">優先順序</v-col>
     <v-col cols="2">訂單編號</v-col>
-    <v-col cols="3">訂單描述</v-col>
+    <v-col cols="2">訂單描述</v-col>
+    <v-col cols="1">訂單操作人信箱</v-col>
     <v-col cols="2">訂單狀態</v-col>
     <v-col cols="2">預期完成日</v-col>
     <v-col cols="2">操作</v-col>
@@ -80,7 +81,8 @@ onMounted(() => {
   <v-row v-for="(order, index) in orders" key:record data-aos="zoom-in">
     <v-col cols="1">{{ index + 1 }}</v-col>
     <v-col cols="2">{{ order.order_number }}</v-col>
-    <v-col cols="3">{{ order.description }}</v-col>
+    <v-col cols="2">{{ order.description }}</v-col>
+    <v-col cols="1">{{ order.user_id.email }}</v-col>
     <v-col cols="2">{{ order.status }}</v-col>
     <v-col cols="2">
       <v-label :style="{
