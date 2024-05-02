@@ -25,6 +25,7 @@ const record = ref({
 } as OrderUpdateDTO);
 const userList = ref<User[]>([]);
 const adapter = useDate();
+const otherDescription = ref<String>("");
 
 const orderDescriptionList = ref<String[]>(["電源供應器損壞", "主機板損壞", "硬碟損壞", "螢幕損壞", "電池損壞", "其他"]);
 const statusList = ref<String[]>(['已完成', '待處理', '已取消']);
@@ -63,6 +64,9 @@ const submitForm = async () => {
     '.' + date.getMilliseconds().toString().padStart(6, '0') +
     getTimezoneOffset(date);
 
+  if (record.value.description == "其他") {
+    record.value.description = otherDescription.value.toString();
+  }
   const formRecord = {
     order_number: record.value.order_number,
     description: record.value.description,
@@ -114,6 +118,9 @@ onMounted(() => {
         </v-col>
         <v-col cols="4">
           <v-select label="訂單描述" v-model="record.description" :items="orderDescriptionList"></v-select>
+          <!-- <transition name="fade">
+            <v-text-field v-show="record.description == '其他'" v-model="otherDescription" label="其他訂單描述"></v-text-field>
+          </transition> -->
           <!-- <v-text-field v-model="record.description" label="訂單描述"></v-text-field> -->
         </v-col>
         <v-col cols="2">
@@ -130,6 +137,12 @@ onMounted(() => {
         </v-col>
       </v-row>
       <v-row justify="center">
+        <transition name="fade">
+          <v-col cols="4" xs="12" sm="12" md="8" lg="4" xl="4" xxl="4">
+            <v-textarea v-show="record.description == '其他'" v-model="otherDescription" label="其他訂單描述"
+              variant="solo"></v-textarea>
+          </v-col>
+        </transition>
         <v-col cols="4" xs="12" sm="12" md="8" lg="4" xl="4" xxl="4">
           <v-date-picker v-model="record.expected_date"></v-date-picker>
         </v-col>
@@ -163,5 +176,14 @@ onMounted(() => {
   padding: 2%;
   background-color: #ffffff5e;
   border-radius: 0px 0px 20px 20px;
+}
+.fade-enter-active,
+.fade-leave-active {
+  transition: opacity 0.5s ease;
+}
+
+.fade-enter-from,
+.fade-leave-to {
+  opacity: 0;
 }
 </style>
