@@ -37,6 +37,7 @@ const partNewSelectPair = ref<PartSelectPair>(
 const partSelectedList = ref<PartSelectPair[]>([]);
 
 const adapter = useDate();
+const orderDescriptionList = ref<String[]>(["電源供應器損壞", "主機板損壞", "硬碟損壞", "螢幕損壞", "電池損壞", "其他"]);
 const statusList = ref<String[]>(['已完成', '待處理', '已取消']);
 
 const resetForm = () => {
@@ -134,7 +135,7 @@ onMounted(() => {
           <v-text-field v-model="record.order_number" label="訂單編號"></v-text-field>
         </v-col>
         <v-col cols="4">
-          <v-text-field v-model="record.description" label="訂單描述"></v-text-field>
+          <v-select label="訂單描述" v-model="record.description" :items="orderDescriptionList"></v-select>
         </v-col>
         <v-col cols="2">
           <v-select label="訂單狀態" v-model="record.status" :items="statusList"> </v-select>
