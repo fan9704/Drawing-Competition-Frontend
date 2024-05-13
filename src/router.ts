@@ -7,85 +7,68 @@ import {
   type RouteLocationNormalized,
   type RouteRecordRaw,
 } from 'vue-router';
-
-import { useCurrentUser } from 'vuefire';
+import Challenge from "@/views/challenge/IndexView.vue";
+import ChallengePage from "@/views/challenge/ChallengeView.vue";
 
 /** Router Rules */
 const routes: RouteRecordRaw[] = [
   {
     path: '/',
     name: 'Index',
-    component: async () => await import('@/views/IndexView.vue'),
-    meta: {
-      requiresAuth: false,
-    },
+    component:  async () => await import('@/views/index/IndexView.vue')
   },
   {
-    path: '/part',
-    name: 'Part',
-    component: async () => await import('@/views/PartView.vue'),
-    meta: {
-      requiresAuth: true,
-    },
+    path: '/challenge',
+    name: 'Challenge',
+    component: Challenge,
   },
   {
-    path: '/part/:id',
-    name: 'PartEditView',
-    component: async () => await import('@/views/PartEditView.vue'),
+    path: '/challenge/:id',
+    name: 'Challenge-Page',
+    component: ChallengePage,
     props: true,
-    meta: {
-      requiresAuth: true,
-    },
   },
-  {
-    path: '/part/management',
-    name: 'PartManagement',
-    component: async () => await import('@/views/PartManagementView.vue'),
-    meta: {
-      requiresAuth: true,
-    },
-  },
-  {
-    path: '/order',
-    name: 'Order',
-    component: async () => await import('@/views/OrderView.vue'),
-    meta: {
-      requiresAuth: true,
-    },
-  },
-  {
-    path: '/order/:id',
-    name: 'OrderEdit',
-    component: async () => await import('@/views/OrderEditView.vue'),
-    props: true,
-    meta: {
-      requiresAuth: true,
-    },
-  },
-  {
-    path: '/order/create',
-    name: 'OrderCreateView',
-    component: async () => await import('@/views/OrderCreateView.vue'),
-    meta: {
-      requiresAuth: true,
-    },
-  },
-  {
-    path: '/order/schedule',
-    name: 'OrderSchedule',
-    component: async () => await import('@/views/ScheduleView.vue'),
-    meta: {
-      requiresAuth: true,
-    },
-  },
-  {
-    path: '/account',
-    name: 'Account',
-    component: async () => await import('@/views/AccountView.vue'),
-    meta: {
-      requiresAuth: false,
-    },
-  },
+  // {
+  //   path: '/part/management',
+  //   name: 'PartManagement',
+  //   component: async () => await import('@/views/PartManagementView.vue'),
+  //   meta: {
+  //     requiresAuth: true,
+  //   },
+  // },
+  // {
+  //   path: '/order',
+  //   name: 'Order',
+  //   component: async () => await import('@/views/OrderView.vue'),
+  //   meta: {
+  //     requiresAuth: true,
+  //   },
+  // },
+  // {
+  //   path: '/order/:id',
+  //   name: 'OrderEdit',
+  //   component: async () => await import('@/views/OrderEditView.vue'),
+  //   props: true,
+  //   meta: {
+  //     requiresAuth: true,
+  //   },
+  // },
+  // {
+  //   path: '/order/create',
+  //   name: 'OrderCreateView',
+  //   component: async () => await import('@/views/OrderCreateView.vue'),
+  //   meta: {
+  //     requiresAuth: true,
+  //   },
+  // },
+  // {
+  //   path: '/order/schedule',
+  //   name: 'OrderSchedule',
+  //   component: async () => await import('@/views/ScheduleView.vue'),
+  //   meta: {
+  //     requiresAuth: true,
+  //   },
+  // },
 ];
 
 /** Vue Router */
@@ -111,28 +94,6 @@ const router: Router = createRouter({
   routes,
 });
 
-// Global before guards
-// https://router.vuejs.org/guide/advanced/navigation-guards.html#global-before-guards}
-router.beforeEach(
-  async (
-    to: RouteLocationNormalized,
-    from: RouteLocationNormalized,
-    next: NavigationGuardNext
-  ) => {
-    const globalStore = useGlobal();
-    const user = useCurrentUser();
-
-    if (to.matched.some(record => record.meta.requiresAuth)) {
-      if (!user.value) {
-        next({ name: 'Account' });
-      } else {
-        next();
-      }
-    } else {
-      next();
-    }
-  }
-);
 
 // Global After Hooks
 // https://router.vuejs.org/guide/advanced/navigation-guards.html#global-after-hooks}
