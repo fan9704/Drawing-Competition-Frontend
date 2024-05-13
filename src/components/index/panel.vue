@@ -33,8 +33,8 @@ const panelList = ref(
   ]
 );
 const goRoute = (route: string) => {
-  console.log(route);
-  router.push({ path: route });
+  // console.log(route);
+  // router.push({ path: route });
 }
 </script>
 <template>
