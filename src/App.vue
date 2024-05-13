@@ -137,6 +137,7 @@ html {
   scrollbar-width: thin;
   scrollbar-color: map-get(settings.$grey, 'lighten-2')
     map-get(settings.$grey, 'base');
+  
 }
 
 ::-webkit-scrollbar {
