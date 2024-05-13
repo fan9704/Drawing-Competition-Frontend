@@ -50,7 +50,8 @@ let vuetifyConfig: VuetifyOptions = {
   // Internationalization (i18n)
   // https://vuetifyjs.com/en/features/internationalization/#internationalization-i18n
   locale: {
-    locale: 'en',
+    // locale: 'en',
+    locale: 'zh-TW',
     fallback: 'en',
     messages: { en },
   },
