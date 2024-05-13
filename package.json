@@ -1,29 +1,19 @@
 {
   "$schema": "https://json.schemastore.org/package.json",
-  "name": "equipmenr-frontend",
-  "description": "Equipment project for Vite.",
+  "name": "drawing_competition_frontend",
+  "description": "Drawing Competition Frontend",
   "version": "0.0.0",
   "license": "MIT",
   "type": "module",
-  "private": true,
+  "private": false,
   "author": {
     "name": "FKT",
     "email": "cxz123499@gmail.com",
     "url": "https://www.fab9704.github.io/"
   },
-  "homepage": "https://github.com/logue/vite-vuetify-ts-starter",
-  "repository": {
-    "type": "git",
-    "url": "git@github.com:logue/vite-vuetify-ts-starter.git"
-  },
-  "bugs": {
-    "url": "https://github.com/logue/vite-vuetify-ts-starter/issues"
-  },
   "engines": {
-    "node": ">=18.12.5",
-    "yarn": ">=1.22.19"
+    "node": ">=18.12.5"
   },
-  "packageManager": "yarn@4.1.1",
   "scripts": {
     "dev": "vite",
     "clean": "rimraf ./node_modules/.vite",
