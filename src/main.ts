@@ -20,12 +20,19 @@ import 'sweetalert2/dist/sweetalert2.min.css';
 
 import AOS from 'aos';
 import 'aos/dist/aos.css';
+import { install as VueMonacoEditorPlugin } from '@guolao/vue-monaco-editor'
 
 const vue = createApp(App);
 
 vue.use(router);
 vue.use(store);
 vue.use(vuetify);
+vue.use(VueMonacoEditorPlugin, {
+  paths: {
+    // The recommended CDN config
+    vs: 'https://cdn.jsdelivr.net/npm/monaco-editor@0.43.0/min/vs'
+  },
+})
 // vue.use(VueFire, {
 //   firebaseApp,
 //   modules: [
