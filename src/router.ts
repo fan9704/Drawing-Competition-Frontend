@@ -34,6 +34,17 @@ const routes: RouteRecordRaw[] = [
     name: 'TeamAuth',
     component: TeamAuth
   },
+  // Statistic
+  {
+    path: "/statistic",
+    name: 'Statistic',
+    component: import('@/views/statistic/IndexView.vue')
+  },
+  {
+    path: "/realtime/statistic",
+    name: 'Realtime-Statistic',
+    component: async () => await import('@/views/realtime_statistic/IndexView.vue')
+  },
 ];
 
 /** Vue Router */

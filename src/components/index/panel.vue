@@ -23,7 +23,7 @@ const panelList = ref(
     {
       title: "排行榜",
       image: scheduleImage,
-      link: "/order/schedule",
+      link: "/statistic",
     },
     {
       title: "登入",

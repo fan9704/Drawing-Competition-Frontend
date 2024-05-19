@@ -13,7 +13,7 @@ interface TeamAuthResponseDTO {
   team: Team;
 }
 interface TeamListResponseDTO {
-  id: number;
+  id: number | undefined;
   name: string;
 }
 export type { Team, TeamAuthRequestDTO, TeamAuthResponseDTO, TeamListResponseDTO }
