@@ -23,32 +23,17 @@ const items: DrawerMenuItem[] = [
     icon: 'mdi-account',
     to: { name: 'TeamAuth' },
   },
-  // {
-  //   title: '訂單管理',
-  //   icon: 'mdi-camera-timer',
-  //   to: { name: 'Order' },
-  // },
-  // {
-  //   title: '新增訂單',
-  //   icon: 'mdi-camera-timer',
-  //   to: { name: 'OrderCreateView' },
-  // },
-  // // Part
-  // {
-  //   title: '新增零件',
-  //   icon: 'mdi-cog',
-  //   to: { name: 'Part' },
-  // },
-  // {
-  //   title: '零件管理',
-  //   icon: 'mdi-cog',
-  //   to: { name: 'PartManagement' },
-  // },
-  // {
-  //   title: '帳戶管理',
-  //   icon: 'mdi-information',
-  //   to: { name: 'Account' },
-  // },
+  // Statistic
+  {
+    title: '圖表統計',
+    icon: 'mdi-chart-bar',
+    to: { name: 'Statistic' },
+  },
+  {
+    title: '及時統計',
+    icon: 'mdi-chart-bar',
+    to: { name: 'Realtime-Statistic' },
+  },
 ];
 </script>
 
