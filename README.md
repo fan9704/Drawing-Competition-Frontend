@@ -1,14 +1,6 @@
-# Equipment Frontend
+# Drawing Competition Frontend
 
-This template should help get you started developing with Vue 3 and Typescript in Vite. The template uses Vue 3 `<script setup>` SFCs, check out the [script setup docs](https://v3.vuejs.org/api/sfc-script-setup.html#sfc-script-setup) to learn more.
-
-Includes [vue-router](https://router.vuejs.org/) and [Pinia](https://pinia.vuejs.org/) [^1].
-
-In addition, [ESLint](https://eslint.org/), [Stylelint](https://stylelint.io/), and [Prettier](https://prettier.io/) are also included and are set to be executed automatically at runtime and commit. (Since these settings are set strictly, please relax yourself.)
-
-Also, when the development server is executed, it is checked in real time by [vite-plugin-checker](https://github.com/fi3ework/vite-plugin-checker).
-
-First define `VITE_APP_TITLE` in your `.env` file.
+> Author FKT
 
 ---
 
@@ -17,13 +9,19 @@ First define `VITE_APP_TITLE` in your `.env` file.
 ### Create .env file
 
 ```shell
-VITE_APP_TITLE = "Equipment-Frontend"
+VITE_APP_TITLE = "Drawing-Competition-Frontend"
 VITE_APP_WEBSTORAGE_NAMESPACE=vuetify
 VUE_APP_API_URL="http://127.0.0.1:8000/api"
 VITE_SERVER_URL="http://127.0.0.1:8000/api"
 ```
+### Install Dependencies
 
-### Run Runserver
+```shell
+pnpm install
+```
+
+
+### Run Server
 
 ```shell
 pnpm dev

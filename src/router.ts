@@ -9,6 +9,7 @@ import {
 } from 'vue-router';
 import Challenge from "@/views/challenge/IndexView.vue";
 import ChallengePage from "@/views/challenge/ChallengeView.vue";
+import TeamAuth from '@/views/team/AuthView.vue'
 
 /** Router Rules */
 const routes: RouteRecordRaw[] = [
@@ -28,47 +29,11 @@ const routes: RouteRecordRaw[] = [
     component: ChallengePage,
     props: true,
   },
-  // {
-  //   path: '/part/management',
-  //   name: 'PartManagement',
-  //   component: async () => await import('@/views/PartManagementView.vue'),
-  //   meta: {
-  //     requiresAuth: true,
-  //   },
-  // },
-  // {
-  //   path: '/order',
-  //   name: 'Order',
-  //   component: async () => await import('@/views/OrderView.vue'),
-  //   meta: {
-  //     requiresAuth: true,
-  //   },
-  // },
-  // {
-  //   path: '/order/:id',
-  //   name: 'OrderEdit',
-  //   component: async () => await import('@/views/OrderEditView.vue'),
-  //   props: true,
-  //   meta: {
-  //     requiresAuth: true,
-  //   },
-  // },
-  // {
-  //   path: '/order/create',
-  //   name: 'OrderCreateView',
-  //   component: async () => await import('@/views/OrderCreateView.vue'),
-  //   meta: {
-  //     requiresAuth: true,
-  //   },
-  // },
-  // {
-  //   path: '/order/schedule',
-  //   name: 'OrderSchedule',
-  //   component: async () => await import('@/views/ScheduleView.vue'),
-  //   meta: {
-  //     requiresAuth: true,
-  //   },
-  // },
+  {
+    path: "/team/login",
+    name: 'TeamAuth',
+    component: TeamAuth
+  },
 ];
 
 /** Vue Router */

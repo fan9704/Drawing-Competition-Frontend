@@ -11,11 +11,17 @@ const items: DrawerMenuItem[] = [
   {
     title: '-', // Divider
   },
-  // Order
+  // Challenge
   {
-    title: '訂單排程',
+    title: '挑戰列管',
     icon: 'mdi-camera-timer',
     to: { name: 'Challenge' },
+  },
+  // Team
+  {
+    title: '小隊登入',
+    icon: 'mdi-account',
+    to: { name: 'TeamAuth' },
   },
   // {
   //   title: '訂單管理',

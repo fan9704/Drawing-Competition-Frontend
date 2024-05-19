@@ -30,6 +30,7 @@
     "prepare": "husky install"
   },
   "dependencies": {
+    "@guolao/vue-monaco-editor": "^1.5.1",
     "@mdi/font": "^7.4.47",
     "aos": "^2.3.4",
     "axios": "^1.6.7",

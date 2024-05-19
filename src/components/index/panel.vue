@@ -11,30 +11,29 @@ const router = useRouter();
 const panelList = ref(
   [
     {
-      title: "零件管理",
+      title: "開始挑戰",
       image: partImage,
-      link: "/part/management",
+      link: "/challenge",
     },
     {
-      title: "訂單管理",
+      title: "小隊管理",
       image: orderImage,
       link: "/order",
     },
     {
-      title: "排程管理",
+      title: "排行榜",
       image: scheduleImage,
       link: "/order/schedule",
     },
     {
-      title: "登入/註冊",
+      title: "登入",
       image: accountImage,
-      link: "/account",
+      link: "/team/login",
     },
   ]
 );
 const goRoute = (route: string) => {
-  // console.log(route);
-  // router.push({ path: route });
+  router.push({ path: route });
 }
 </script>
 <template>
