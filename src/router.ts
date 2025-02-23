@@ -7,44 +7,46 @@ import {
   type RouteLocationNormalized,
   type RouteRecordRaw,
 } from 'vue-router';
-import Challenge from "@/views/challenge/IndexView.vue";
-import ChallengePage from "@/views/challenge/ChallengeView.vue";
-import TeamAuth from '@/views/team/AuthView.vue'
 
 /** Router Rules */
 const routes: RouteRecordRaw[] = [
   {
     path: '/',
     name: 'Index',
-    component:  async () => await import('@/views/index/IndexView.vue')
+    component:  async () => await import('@/views/Index.vue')
   },
   {
-    path: '/challenge',
-    name: 'Challenge',
-    component: Challenge,
+    path: '/team',
+    name: 'TeamOverview',
+    component: async () => await import('@/views/TeamOverview.vue'),
   },
   {
     path: '/challenge/:id',
-    name: 'Challenge-Page',
-    component: ChallengePage,
+    name: 'ChallengeView',
+    component: async () => await import('@/views/Challenge.vue'),
     props: true,
   },
   {
-    path: "/team/login",
-    name: 'TeamAuth',
-    component: TeamAuth
+    path: "/results",
+    name: 'GameResults',
+    component: async () => await import('@/views/Results.vue'),
+  },
+  {
+    path: "/:catchAll(.*)",
+    name: 'NotFound',
+    component: async () => await import('@/views/NotFound.vue'),
   },
   // Statistic
-  {
-    path: "/statistic",
-    name: 'Statistic',
-    component: import('@/views/statistic/IndexView.vue')
-  },
-  {
-    path: "/realtime/statistic",
-    name: 'Realtime-Statistic',
-    component: async () => await import('@/views/realtime_statistic/IndexView.vue')
-  },
+  // {
+  //   path: "/statistic",
+  //   name: 'Statistic',
+  //   component: import('@/views/statistic/IndexView.vue')
+  // },
+  // {
+  //   path: "/realtime/statistic",
+  //   name: 'Realtime-Statistic',
+  //   component: async () => await import('@/views/realtime_statistic/IndexView.vue')
+  // },
 ];
 
 /** Vue Router */

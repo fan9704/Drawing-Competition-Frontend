@@ -18,9 +18,10 @@ import router from '@/router';
 import VueSweetalert2 from 'vue-sweetalert2';
 import 'sweetalert2/dist/sweetalert2.min.css';
 
-import AOS from 'aos';
-import 'aos/dist/aos.css';
+// import AOS from 'aos';
+// import 'aos/dist/aos.css';
 import { install as VueMonacoEditorPlugin } from '@guolao/vue-monaco-editor'
+import { VueQueryPlugin } from '@tanstack/vue-query';
 
 const vue = createApp(App);
 
@@ -41,8 +42,9 @@ vue.use(VueMonacoEditorPlugin, {
 // });
 // vue.use(createVuestic());
 vue.use(VueSweetalert2);
+vue.use(VueQueryPlugin);
 // @ts-ignore
-vue.use(AOS.init());
+// vue.use(AOS.init());
 
 // Run!
 router

@@ -33,7 +33,7 @@ export default defineConfig(({ command, mode }): UserConfig => {
       // https://github.com/vuetifyjs/vuetify-loader/tree/master/packages/vite-plugin
       vuetify({
         autoImport: true,
-        styles: { configFile: 'src/styles/settings.scss' },
+        // styles: { configFile: 'src/styles/settings.scss' },
       }),
       // vite-plugin-checker
       // https://github.com/fi3ework/vite-plugin-checker
@@ -68,6 +68,13 @@ export default defineConfig(({ command, mode }): UserConfig => {
         '~': fileURLToPath(new URL('./node_modules', import.meta.url)),
       },
       extensions: ['.js', '.json', '.jsx', '.mjs', '.ts', '.tsx', '.vue'],
+    },
+    css: {
+      preprocessorOptions: {
+        scss: {
+          api: 'modern-compiler' // or "modern"
+        }
+      }
     },
     // Build Options
     // https://vitejs.dev/config/build-options.html
